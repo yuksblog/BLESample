@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2478952624B9A58900217E40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478952524B9A58900217E40 /* AppDelegate.swift */; };
+		2478952824B9A58900217E40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478952724B9A58900217E40 /* SceneDelegate.swift */; };
+		2478952A24B9A58900217E40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478952924B9A58900217E40 /* ContentView.swift */; };
+		2478952C24B9A58B00217E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478952B24B9A58B00217E40 /* Assets.xcassets */; };
+		2478952F24B9A58B00217E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478952E24B9A58B00217E40 /* Preview Assets.xcassets */; };
+		2478953224B9A58B00217E40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2478953024B9A58B00217E40 /* LaunchScreen.storyboard */; };
+		2478953724B9A58B00217E40 /* BLESample WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2478953624B9A58B00217E40 /* BLESample WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2478953D24B9A58B00217E40 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2478953B24B9A58B00217E40 /* Interface.storyboard */; };
+		2478953F24B9A58C00217E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478953E24B9A58C00217E40 /* Assets.xcassets */; };
+		2478954624B9A58C00217E40 /* BLESample WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2478954524B9A58C00217E40 /* BLESample WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2478954B24B9A58C00217E40 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478954A24B9A58C00217E40 /* ContentView.swift */; };
+		2478954D24B9A58C00217E40 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478954C24B9A58C00217E40 /* HostingController.swift */; };
+		2478954F24B9A58C00217E40 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478954E24B9A58C00217E40 /* ExtensionDelegate.swift */; };
+		2478955124B9A58D00217E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478955024B9A58D00217E40 /* Assets.xcassets */; };
+		2478955424B9A58D00217E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478955324B9A58D00217E40 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2478953824B9A58B00217E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2478951A24B9A58900217E40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2478953524B9A58B00217E40;
+			remoteInfo = "BLESample WatchKit App";
+		};
+		2478954724B9A58C00217E40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2478951A24B9A58900217E40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2478954424B9A58C00217E40;
+			remoteInfo = "BLESample WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2478955B24B9A58D00217E40 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2478954624B9A58C00217E40 /* BLESample WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2478955F24B9A58D00217E40 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2478953724B9A58B00217E40 /* BLESample WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2478952224B9A58900217E40 /* BLESample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLESample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2478952524B9A58900217E40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2478952724B9A58900217E40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2478952924B9A58900217E40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2478952B24B9A58B00217E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2478952E24B9A58B00217E40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2478953124B9A58B00217E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2478953324B9A58B00217E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2478953624B9A58B00217E40 /* BLESample WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BLESample WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2478953C24B9A58B00217E40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2478953E24B9A58C00217E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2478954024B9A58C00217E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2478954524B9A58C00217E40 /* BLESample WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "BLESample WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2478954A24B9A58C00217E40 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2478954C24B9A58C00217E40 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		2478954E24B9A58C00217E40 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2478955024B9A58D00217E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2478955324B9A58D00217E40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2478955524B9A58D00217E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2478951F24B9A58900217E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2478954224B9A58C00217E40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2478951924B9A58900217E40 = {
+			isa = PBXGroup;
+			children = (
+				2478952424B9A58900217E40 /* BLESample */,
+				2478953A24B9A58B00217E40 /* BLESample WatchKit App */,
+				2478954924B9A58C00217E40 /* BLESample WatchKit Extension */,
+				2478952324B9A58900217E40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2478952324B9A58900217E40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2478952224B9A58900217E40 /* BLESample.app */,
+				2478953624B9A58B00217E40 /* BLESample WatchKit App.app */,
+				2478954524B9A58C00217E40 /* BLESample WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2478952424B9A58900217E40 /* BLESample */ = {
+			isa = PBXGroup;
+			children = (
+				2478952524B9A58900217E40 /* AppDelegate.swift */,
+				2478952724B9A58900217E40 /* SceneDelegate.swift */,
+				2478952924B9A58900217E40 /* ContentView.swift */,
+				2478952B24B9A58B00217E40 /* Assets.xcassets */,
+				2478953024B9A58B00217E40 /* LaunchScreen.storyboard */,
+				2478953324B9A58B00217E40 /* Info.plist */,
+				2478952D24B9A58B00217E40 /* Preview Content */,
+			);
+			path = BLESample;
+			sourceTree = "<group>";
+		};
+		2478952D24B9A58B00217E40 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2478952E24B9A58B00217E40 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2478953A24B9A58B00217E40 /* BLESample WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				2478953B24B9A58B00217E40 /* Interface.storyboard */,
+				2478953E24B9A58C00217E40 /* Assets.xcassets */,
+				2478954024B9A58C00217E40 /* Info.plist */,
+			);
+			path = "BLESample WatchKit App";
+			sourceTree = "<group>";
+		};
+		2478954924B9A58C00217E40 /* BLESample WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2478954A24B9A58C00217E40 /* ContentView.swift */,
+				2478954C24B9A58C00217E40 /* HostingController.swift */,
+				2478954E24B9A58C00217E40 /* ExtensionDelegate.swift */,
+				2478955024B9A58D00217E40 /* Assets.xcassets */,
+				2478955524B9A58D00217E40 /* Info.plist */,
+				2478955224B9A58D00217E40 /* Preview Content */,
+			);
+			path = "BLESample WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		2478955224B9A58D00217E40 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2478955324B9A58D00217E40 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2478952124B9A58900217E40 /* BLESample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2478956024B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample" */;
+			buildPhases = (
+				2478951E24B9A58900217E40 /* Sources */,
+				2478951F24B9A58900217E40 /* Frameworks */,
+				2478952024B9A58900217E40 /* Resources */,
+				2478955F24B9A58D00217E40 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2478953924B9A58B00217E40 /* PBXTargetDependency */,
+			);
+			name = BLESample;
+			productName = BLESample;
+			productReference = 2478952224B9A58900217E40 /* BLESample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2478953524B9A58B00217E40 /* BLESample WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2478955C24B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample WatchKit App" */;
+			buildPhases = (
+				2478953424B9A58B00217E40 /* Resources */,
+				2478955B24B9A58D00217E40 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2478954824B9A58C00217E40 /* PBXTargetDependency */,
+			);
+			name = "BLESample WatchKit App";
+			productName = "BLESample WatchKit App";
+			productReference = 2478953624B9A58B00217E40 /* BLESample WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2478954424B9A58C00217E40 /* BLESample WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2478955824B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample WatchKit Extension" */;
+			buildPhases = (
+				2478954124B9A58C00217E40 /* Sources */,
+				2478954224B9A58C00217E40 /* Frameworks */,
+				2478954324B9A58C00217E40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BLESample WatchKit Extension";
+			productName = "BLESample WatchKit Extension";
+			productReference = 2478954524B9A58C00217E40 /* BLESample WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2478951A24B9A58900217E40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = yukinobu.imai;
+				TargetAttributes = {
+					2478952124B9A58900217E40 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					2478953524B9A58B00217E40 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					2478954424B9A58C00217E40 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 2478951D24B9A58900217E40 /* Build configuration list for PBXProject "BLESample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2478951924B9A58900217E40;
+			productRefGroup = 2478952324B9A58900217E40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2478952124B9A58900217E40 /* BLESample */,
+				2478953524B9A58B00217E40 /* BLESample WatchKit App */,
+				2478954424B9A58C00217E40 /* BLESample WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2478952024B9A58900217E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2478953224B9A58B00217E40 /* LaunchScreen.storyboard in Resources */,
+				2478952F24B9A58B00217E40 /* Preview Assets.xcassets in Resources */,
+				2478952C24B9A58B00217E40 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2478953424B9A58B00217E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2478953F24B9A58C00217E40 /* Assets.xcassets in Resources */,
+				2478953D24B9A58B00217E40 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2478954324B9A58C00217E40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2478955424B9A58D00217E40 /* Preview Assets.xcassets in Resources */,
+				2478955124B9A58D00217E40 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2478951E24B9A58900217E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2478952624B9A58900217E40 /* AppDelegate.swift in Sources */,
+				2478952824B9A58900217E40 /* SceneDelegate.swift in Sources */,
+				2478952A24B9A58900217E40 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2478954124B9A58C00217E40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2478954D24B9A58C00217E40 /* HostingController.swift in Sources */,
+				2478954B24B9A58C00217E40 /* ContentView.swift in Sources */,
+				2478954F24B9A58C00217E40 /* ExtensionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2478953924B9A58B00217E40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2478953524B9A58B00217E40 /* BLESample WatchKit App */;
+			targetProxy = 2478953824B9A58B00217E40 /* PBXContainerItemProxy */;
+		};
+		2478954824B9A58C00217E40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2478954424B9A58C00217E40 /* BLESample WatchKit Extension */;
+			targetProxy = 2478954724B9A58C00217E40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2478953024B9A58B00217E40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2478953124B9A58B00217E40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2478953B24B9A58B00217E40 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2478953C24B9A58B00217E40 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2478955624B9A58D00217E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2478955724B9A58D00217E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2478955924B9A58D00217E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BLESample WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "BLESample WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		2478955A24B9A58D00217E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BLESample WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "BLESample WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		2478955D24B9A58D00217E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				IBSC_MODULE = BLESample_WatchKit_Extension;
+				INFOPLIST_FILE = "BLESample WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		2478955E24B9A58D00217E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				IBSC_MODULE = BLESample_WatchKit_Extension;
+				INFOPLIST_FILE = "BLESample WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		2478956124B9A58D00217E40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BLESample/Preview Content\"";
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BLESample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2478956224B9A58D00217E40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"BLESample/Preview Content\"";
+				DEVELOPMENT_TEAM = S54AXPY6Z2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = BLESample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.yukblog.BLESample.BLESample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2478951D24B9A58900217E40 /* Build configuration list for PBXProject "BLESample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2478955624B9A58D00217E40 /* Debug */,
+				2478955724B9A58D00217E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2478955824B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2478955924B9A58D00217E40 /* Debug */,
+				2478955A24B9A58D00217E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2478955C24B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2478955D24B9A58D00217E40 /* Debug */,
+				2478955E24B9A58D00217E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2478956024B9A58D00217E40 /* Build configuration list for PBXNativeTarget "BLESample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2478956124B9A58D00217E40 /* Debug */,
+				2478956224B9A58D00217E40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2478951A24B9A58900217E40 /* Project object */;
+}
