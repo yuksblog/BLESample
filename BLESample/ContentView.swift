@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var peripheral = MyPeripheral()
+    
+    var wc = WCPhone()
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 50) {
+            Text("BLEペリフェラル")
+            HStack(spacing: 20) {
+                Text("レジスト")
+                Button(action: { self.peripheral.regist() }) { Text("スタート") }
+            }
+            HStack(spacing: 20) {
+                Text("アドバタイズ")
+                Button(action: { self.peripheral.startAdvertise() }) { Text("スタート") }
+                Button(action: { self.peripheral.stopAdvertise() }) { Text("ストップ") }
+            }
+        }
     }
 }
 

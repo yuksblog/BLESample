@@ -9,8 +9,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var central = MyCentral()
+    
+    var wc = WCWatch()
+    
+    
     var body: some View {
-        Text("Hello, World!")
+        ScrollView {
+            VStack {
+                Text("BLEセントラル")
+                Text("スキャン")
+                HStack {
+                    Button(action: { self.central.startScan() }) { Text("開始") }
+                    Button(action: { self.central.stopScan() }) { Text("停止") }
+                }
+                ForEach(0..<self.central.candidateNames.count, id: \.self) { i in
+                    Text(self.central.candidateNames[i]).onTapGesture {
+                        self.central.connect(index: i)
+                    }
+                }
+                Button(action: { self.central.write() }) { Text("通知") }
+                Button(action: { self.wc.send(message: ["Hello" : "World"]) }) { Text("WC通知") }
+            }
+        }
     }
 }
 

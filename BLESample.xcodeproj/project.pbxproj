@@ -22,6 +22,14 @@
 		2478954F24B9A58C00217E40 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478954E24B9A58C00217E40 /* ExtensionDelegate.swift */; };
 		2478955124B9A58D00217E40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478955024B9A58D00217E40 /* Assets.xcassets */; };
 		2478955424B9A58D00217E40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2478955324B9A58D00217E40 /* Preview Assets.xcassets */; };
+		2478956724B9B59600217E40 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478956624B9B59600217E40 /* Const.swift */; };
+		2478956A24BA828600217E40 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478956624B9B59600217E40 /* Const.swift */; };
+		2478956E24BA863100217E40 /* MyCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478956D24BA863100217E40 /* MyCentral.swift */; };
+		2478957024BA868500217E40 /* MyPheripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478956F24BA868500217E40 /* MyPheripheral.swift */; };
+		2478957224BAA44400217E40 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478957124BAA44400217E40 /* Data.swift */; };
+		2478957324BAA45A00217E40 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478957124BAA44400217E40 /* Data.swift */; };
+		2478957524BABC9700217E40 /* WCWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478957424BABC9700217E40 /* WCWatch.swift */; };
+		2478957724BABDC900217E40 /* WCPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2478957624BABDC900217E40 /* WCPhone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +94,12 @@
 		2478955024B9A58D00217E40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2478955324B9A58D00217E40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2478955524B9A58D00217E40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2478956624B9B59600217E40 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		2478956D24BA863100217E40 /* MyCentral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCentral.swift; sourceTree = "<group>"; };
+		2478956F24BA868500217E40 /* MyPheripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPheripheral.swift; sourceTree = "<group>"; };
+		2478957124BAA44400217E40 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2478957424BABC9700217E40 /* WCWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCWatch.swift; sourceTree = "<group>"; };
+		2478957624BABDC900217E40 /* WCPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPhone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +123,7 @@
 		2478951924B9A58900217E40 = {
 			isa = PBXGroup;
 			children = (
+				2478956524B9B09000217E40 /* Shared */,
 				2478952424B9A58900217E40 /* BLESample */,
 				2478953A24B9A58B00217E40 /* BLESample WatchKit App */,
 				2478954924B9A58C00217E40 /* BLESample WatchKit Extension */,
@@ -130,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				2478952524B9A58900217E40 /* AppDelegate.swift */,
+				2478957624BABDC900217E40 /* WCPhone.swift */,
+				2478956F24BA868500217E40 /* MyPheripheral.swift */,
 				2478952724B9A58900217E40 /* SceneDelegate.swift */,
 				2478952924B9A58900217E40 /* ContentView.swift */,
 				2478952B24B9A58B00217E40 /* Assets.xcassets */,
@@ -162,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				2478954A24B9A58C00217E40 /* ContentView.swift */,
+				2478957424BABC9700217E40 /* WCWatch.swift */,
+				2478956D24BA863100217E40 /* MyCentral.swift */,
 				2478954C24B9A58C00217E40 /* HostingController.swift */,
 				2478954E24B9A58C00217E40 /* ExtensionDelegate.swift */,
 				2478955024B9A58D00217E40 /* Assets.xcassets */,
@@ -177,6 +196,15 @@
 				2478955324B9A58D00217E40 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2478956524B9B09000217E40 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2478956624B9B59600217E40 /* Const.swift */,
+				2478957124BAA44400217E40 /* Data.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,8 +341,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2478952624B9A58900217E40 /* AppDelegate.swift in Sources */,
+				2478957224BAA44400217E40 /* Data.swift in Sources */,
 				2478952824B9A58900217E40 /* SceneDelegate.swift in Sources */,
+				2478957024BA868500217E40 /* MyPheripheral.swift in Sources */,
 				2478952A24B9A58900217E40 /* ContentView.swift in Sources */,
+				2478956724B9B59600217E40 /* Const.swift in Sources */,
+				2478957724BABDC900217E40 /* WCPhone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,9 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2478957324BAA45A00217E40 /* Data.swift in Sources */,
+				2478956A24BA828600217E40 /* Const.swift in Sources */,
 				2478954D24B9A58C00217E40 /* HostingController.swift in Sources */,
 				2478954B24B9A58C00217E40 /* ContentView.swift in Sources */,
 				2478954F24B9A58C00217E40 /* ExtensionDelegate.swift in Sources */,
+				2478957524BABC9700217E40 /* WCWatch.swift in Sources */,
+				2478956E24BA863100217E40 /* MyCentral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
