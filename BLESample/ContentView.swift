@@ -12,19 +12,20 @@ struct ContentView: View {
     
     @ObservedObject var peripheral = MyPeripheral()
     
-    var wc = WCPhone()
-    
     var body: some View {
         VStack(spacing: 50) {
-            Text("BLEペリフェラル")
-            HStack(spacing: 20) {
-                Text("レジスト")
-                Button(action: { self.peripheral.regist() }) { Text("スタート") }
-            }
             HStack(spacing: 20) {
                 Text("アドバタイズ")
-                Button(action: { self.peripheral.startAdvertise() }) { Text("スタート") }
+                Button(action: { self.peripheral.startRegistAndAdvertise() }) { Text("スタート") }
                 Button(action: { self.peripheral.stopAdvertise() }) { Text("ストップ") }
+            }
+            HStack(spacing: 20) {
+                Text("Centralからの書き込み")
+                Text("\(self.peripheral.wroteMessage)")
+            }
+            HStack(spacing: 20) {
+                Text("Centralへ通知")
+                Button(action: { self.peripheral.notify() }) { Text("通知") }
             }
         }
     }

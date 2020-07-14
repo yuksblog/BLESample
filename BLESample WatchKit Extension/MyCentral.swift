@@ -14,16 +14,22 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
     let centralManager = CBCentralManager()
     
     @Published var candidateNames: [String] = []
+    
     var candidates: [CBPeripheral] = []
     
     var peripheral: CBPeripheral?
     
     var service: CBService?
     
-    var characteristis: CBCharacteristic?
+    var writeCharacteristic: CBCharacteristic?
+
+    var notifyCharacteristic: CBCharacteristic?
+
+    var count: UInt32 = 0
+    
+    @Published var notifiedMessage = "未受信"
     
     
-    // TODO スキャンのタイムアウト処理
     
     override init() {
         super.init()
@@ -48,6 +54,7 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
         }
     }
     
+    // Centralの状態が変化したとき
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOff:
@@ -77,14 +84,14 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
         print("BLE start connect")
         self.peripheral = candidates[index]
         centralManager.connect(self.peripheral!, options: nil)
-        
-        // TODO この時にスキャンは停止した方が良い？サンプルだと接続後
     }
     
     func write() {
-        peripheral?.writeValue(Data(from: Double(1.5)), for: (self.service?.characteristics?.first)!, type: .withoutResponse)
+        peripheral?.writeValue(Data(from: count), for: (self.service?.characteristics?.first)!, type: .withoutResponse)
+        count += 1
     }
     
+    // Peripheralを見つけたとき
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
         let name = peripheral.name
@@ -96,33 +103,49 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
         }
     }
     
+    // 接続したとき
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("BLE connected")
         peripheral.delegate = self
         peripheral.discoverServices([Const.SERVICE_UUID])
-        
-        // MEMO 複数のPeripheralと接続するのであれば、CBPeripheralDelegateは別のクラスにした方がわかりやすくなる
-        // １つのPeripheralと接続するので、今回は１つのクラスにまとめた
     }
     
+    // 接続に失敗したとき
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         print("BLE connect failed")
     }
     
+    // Serviceを見つけたとき
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         print("BLE discovered services")
-        peripheral.discoverCharacteristics([Const.CHARACTERISTIC_UUID], for: (peripheral.services?.first)!)
+        
+        service = peripheral.services?.first
+        
+        peripheral.discoverCharacteristics([Const.WRITE_CHARACTERISTIC_UUID, Const.NOTIFY_CHARACTERISTIC_UUID], for: service!)
     }
     
+    // Characteristicを見つけたとき
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print("BLE discovered characteristics")
         
-        self.service = service
-        // MEMO discoverできた後に、Characteristisにアクセスできるようになる
+        for characteristic in service.characteristics! {
+            
+            if characteristic.uuid == Const.WRITE_CHARACTERISTIC_UUID {
+                writeCharacteristic = characteristic
+                
+            } else if characteristic.uuid == Const.NOTIFY_CHARACTERISTIC_UUID {
+                // 通知の受け取りを開始する
+                notifyCharacteristic = characteristic
+                peripheral.setNotifyValue(true, for: notifyCharacteristic!)
+            }
+        }
     }
     
+    // 通知を受け取ったとき
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("BLE updated characteristis: \(characteristic.value!)")
+        let peripheralCount = characteristic.value!.withUnsafeBytes { $0.load( as: UInt32.self ) }
+        notifiedMessage = "\(peripheralCount)"
     }
     
 }

@@ -12,25 +12,25 @@ struct ContentView: View {
     
     @ObservedObject var central = MyCentral()
     
-    var wc = WCWatch()
-    
-    
     var body: some View {
         ScrollView {
             VStack {
-                Text("BLEセントラル")
                 Text("スキャン")
                 HStack {
                     Button(action: { self.central.startScan() }) { Text("開始") }
                     Button(action: { self.central.stopScan() }) { Text("停止") }
                 }
+                Text("見つけたiPhone")
                 ForEach(0..<self.central.candidateNames.count, id: \.self) { i in
-                    Text(self.central.candidateNames[i]).onTapGesture {
+                    Button(action: {
                         self.central.connect(index: i)
+                    }) {
+                        Text(self.central.candidateNames[i])
                     }
                 }
-                Button(action: { self.central.write() }) { Text("通知") }
-                Button(action: { self.wc.send(message: ["Hello" : "World"]) }) { Text("WC通知") }
+                Text("メッセージ")
+                Button(action: { self.central.write() }) { Text("書き込み") }
+                Text("通知の受信:\(self.central.notifiedMessage)")
             }
         }
     }
