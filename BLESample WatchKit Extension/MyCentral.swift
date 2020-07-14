@@ -13,8 +13,6 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
     
     let centralManager = CBCentralManager()
     
-    @Published var candidateNames: [String] = []
-    
     var candidates: [CBPeripheral] = []
     
     var peripheral: CBPeripheral?
@@ -26,6 +24,8 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
     var notifyCharacteristic: CBCharacteristic?
 
     var count: UInt32 = 0
+    
+    @Published var candidateNames: [String] = []
     
     @Published var notifiedMessage = "未受信"
     
@@ -82,12 +82,14 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
     
     func connect(index: Int) {
         print("BLE start connect")
+        
         self.peripheral = candidates[index]
         centralManager.connect(self.peripheral!, options: nil)
     }
     
     func write() {
-        peripheral?.writeValue(Data(from: count), for: (self.service?.characteristics?.first)!, type: .withoutResponse)
+        let data = Data(bytes: &count, count: MemoryLayout.size(ofValue: count))
+        peripheral?.writeValue(data, for: (self.service?.characteristics?.first)!, type: .withoutResponse)
         count += 1
     }
     
@@ -97,7 +99,7 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
         let name = peripheral.name
         let localName = advertisementData[CBAdvertisementDataLocalNameKey] as? String
         print("BLE discovered \(String(describing: name)) LocalName=\(String(describing: localName))")
-        if localName != nil && localName == "Moselog" {
+        if localName != nil && localName == "sample" {
             candidateNames.append(localName!)
             candidates.append(peripheral)
         }
@@ -143,7 +145,8 @@ class MyCentral: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeriphe
     
     // 通知を受け取ったとき
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("BLE updated characteristis: \(characteristic.value!)")
+        print("BLE updated characteristis: \(characteristic)")
+        
         let peripheralCount = characteristic.value!.withUnsafeBytes { $0.load( as: UInt32.self ) }
         notifiedMessage = "\(peripheralCount)"
     }

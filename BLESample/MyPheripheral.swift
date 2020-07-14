@@ -15,13 +15,10 @@ class MyPeripheral: NSObject, ObservableObject, CBPeripheralManagerDelegate {
     
     var service: CBMutableService?
     
-//    var writeCharacteristic: CBMutableCharacteristic?
-//    var notifyCharacteristic: CBMutableCharacteristic?
-
-    let writeCharacteristic = CBMutableCharacteristic(type: Const.WRITE_CHARACTERISTIC_UUID, properties: [.read, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
+    var writeCharacteristic: CBMutableCharacteristic?
     
-    let notifyCharacteristic = CBMutableCharacteristic(type: Const.NOTIFY_CHARACTERISTIC_UUID, properties: [.read, .notify], value: nil, permissions: [.readable, .writeable])
-
+    var notifyCharacteristic: CBMutableCharacteristic?
+    
     @Published var wroteMessage = ""
     
     var count: UInt32 = 0
@@ -35,6 +32,8 @@ class MyPeripheral: NSObject, ObservableObject, CBPeripheralManagerDelegate {
     
     // アドバタイズ開始ボタンが押されたとき
     func startRegistAndAdvertise() {
+        print("[BLE] start Regist and Advertise")
+        
         // まずはレジストから
         regist()
     }
@@ -42,12 +41,15 @@ class MyPeripheral: NSObject, ObservableObject, CBPeripheralManagerDelegate {
     // アドバタイズ停止ボタンが押されたとき
     func stopAdvertise() {
         print("[BLE] stop Advertise")
+        
         peripheralManager.stopAdvertising()
     }
     
     func notify() {
-//        notifyCharacteristic?.value?.append(Data(from: Double(1.5))
-        peripheralManager.updateValue(Data(from: count), for: notifyCharacteristic, onSubscribedCentrals: nil)
+        print("[BLE] notify")
+        
+        let data = Data(bytes: &count, count: MemoryLayout.size(ofValue: count))
+        peripheralManager.updateValue(data, for: notifyCharacteristic!, onSubscribedCentrals: nil)
         count += 1
     }
     
@@ -56,15 +58,15 @@ class MyPeripheral: NSObject, ObservableObject, CBPeripheralManagerDelegate {
         print("[BLE] start regist")
         
         // create service
-        service = CBMutableService(type: Const.SERVICE_UUID, primary: true)
+        let service = CBMutableService(type: Const.SERVICE_UUID, primary: true)
         
-//        // create characteristic
-//        let writeCharacteristic = CBMutableCharacteristic(type: Const.WRITE_CHARACTERISTIC_UUID, properties: [.read, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
-//        let notifyCharacteristic = CBMutableCharacteristic(type: Const.NOTIFY_CHARACTERISTIC_UUID, properties: [.read, .notify], value: nil, permissions: [.readable, .writeable])
-        service!.characteristics = [writeCharacteristic, notifyCharacteristic]
+        // create characteristic
+        let writeCharacteristic = CBMutableCharacteristic(type: Const.WRITE_CHARACTERISTIC_UUID, properties: [.read, .writeWithoutResponse], value: nil, permissions: [.readable, .writeable])
+        let notifyCharacteristic = CBMutableCharacteristic(type: Const.NOTIFY_CHARACTERISTIC_UUID, properties: [.read, .notify], value: nil, permissions: [.readable, .writeable])
+        service.characteristics = [writeCharacteristic, notifyCharacteristic]
         
         // regist
-        peripheralManager.add(service!)
+        peripheralManager.add(service)
     }
     
     
@@ -96,25 +98,36 @@ class MyPeripheral: NSObject, ObservableObject, CBPeripheralManagerDelegate {
     
     // レジストが終わったとき
     func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
-        print("didAdd error=\(String(describing: error))")
+        print("[BLE] didAdd error=\(String(describing: error))")
+        
+        // Service と Characteristicを持っておく
+        self.service = service as? CBMutableService
+        for characteristic in service.characteristics! {
+            if characteristic.uuid == Const.NOTIFY_CHARACTERISTIC_UUID {
+                notifyCharacteristic = characteristic as? CBMutableCharacteristic
+            } else if characteristic.uuid == Const.WRITE_CHARACTERISTIC_UUID {
+                writeCharacteristic = characteristic as? CBMutableCharacteristic
+            }
+        }
         
         // アドバタイズを開始
-        let advertisementData = [CBAdvertisementDataServiceUUIDsKey: [service.uuid], CBAdvertisementDataLocalNameKey: "Moselog"] as [String : Any]
+        let advertisementData = [CBAdvertisementDataServiceUUIDsKey: [service.uuid], CBAdvertisementDataLocalNameKey: "sample"] as [String : Any]
         peripheralManager.startAdvertising(advertisementData)
     }
     
     // アドバタイズが開始されたとき
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
-        print("peripheralManagerDidStartAdvertising error=\(String(describing: error))")
+        print("[BLE] peripheralManagerDidStartAdvertising error=\(String(describing: error))")
     }
     
     // Centralからの購読を受信したとき
     func peripheralManager(_ peripheral: CBPeripheralManager, central: CBCentral, didSubscribeTo characteristic: CBCharacteristic) {
-        print("didSubscribeTo: \(characteristic.isNotifying)")
+        print("[BLE] didSubscribeTo")
     }
+    
     // Centralからの書き込みを受信したとき
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        print("didReceiveWrite")
+        print("[BLE] didReceiveWrite")
         
         let req = requests.first
         let centralCount = req!.value!.withUnsafeBytes { $0.load( as: UInt32.self ) }

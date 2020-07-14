@@ -30,7 +30,7 @@ struct ContentView: View {
                 }
                 Text("メッセージ")
                 Button(action: { self.central.write() }) { Text("書き込み") }
-                Text("通知の受信:\(self.central.notifiedMessage)")
+                Text("通知の受信: \(self.central.notifiedMessage)")
             }
         }
     }
